@@ -1,0 +1,25 @@
+import React, {useState} from "react";
+import "./circular.scss";
+
+export default function Circular(){
+    const [radius, setRadius] = useState([{count:95},{count:92},{count:92},{count:65},{count:60}])
+    return(
+    <div className="headRadius">
+        {radius.map((elem)=>{
+            return(
+                <div className="radius" key={Math.random()}>
+                    <div className="htmlSize">{`${elem.count}${"%"}`}</div>
+                    <div className="boo">
+                        <div className="rotate">
+                            <div className="left"></div>
+                        </div>
+                        <div className="rotater">
+                            <div className="right"></div>
+                        </div>
+                    </div>
+                </div>
+            )
+        })}
+    </div>
+    )
+}

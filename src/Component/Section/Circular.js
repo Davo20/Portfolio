@@ -1,13 +1,18 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import "./circular.scss";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 export default function Circular(){
+    useEffect(()=>{
+        Aos.init()
+    }, [])
     const [radius, setRadius] = useState([{count:95},{count:92},{count:92},{count:65},{count:60}])
     return(
     <div className="headRadius">
         {radius.map((elem)=>{
             return(
-                <div className="radius" key={Math.random()}>
+                <div data-aos="fade-left" data-aos-offset="300" className="radius" key={Math.random()}>
                     <div className="htmlSize">{`${elem.count}${"%"}`}</div>
                     <div className="boo">
                         <div className="rotate">

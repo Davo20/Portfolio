@@ -29,7 +29,7 @@ export default function Contact({send, lang, fon}){
     
     return(
         <section id="sectionContact" className={"section4 " + (fon && "active")}>
-            <h3>{lang.contact}</h3>
+            <h3 data-aos="zoom-out-down" data-aos-offset="100">{lang.contact}</h3>
             <div className="contact">
                 <div className="contactContainer">
                     {contact.map((elem)=>{

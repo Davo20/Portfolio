@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Circular from "./Circular";
 import {AiFillHtml5} from "react-icons/ai";
 import {FaCss3, FaSass, FaReact} from "react-icons/fa";
 import {DiJavascript1} from "react-icons/di"
 import "./skill.scss";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 export default function Skill({lang, fon}){
+    useEffect(()=>{
+        Aos.init()
+    }, [])
     const [value, setValue] = useState([
         {
             className: "html",
@@ -36,11 +41,11 @@ export default function Skill({lang, fon}){
     
     return(
         <section id="sectionSkill" className={"section2 " + (fon && "active")}>
-            <h3>{lang.skills}</h3>
+            <h3 data-aos="zoom-out-down" data-aos-offset="100">{lang.skills}</h3>
             <div className="skill">
                 <div className="frontSkill">
                     <div>{value.map((elem)=>{
-                        return <div className={elem.className} key={Math.random()}>
+                        return <div data-aos="fade-right" data-aos-offset="300" className={elem.className} key={Math.random()}>
                             <div className="skillIcon">{elem.icon}</div>
                             <div className="skillName">
                                 <span>{elem.name}</span>

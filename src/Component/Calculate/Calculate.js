@@ -1,16 +1,51 @@
 import React, {useState} from "react";
 import {IoMdCloseCircleOutline} from "react-icons/io"
+
 import "./calc.scss";
 
 export default function Calculate(){
     const [calc, setCalc] = useState("")
-    
     const handleClick = (e)=>{
-        setCalc(calc.concat(e.target.value).toString())
-        
+        // setCalc(elem=> elem+e.target.value).toString()
+        if(e.target.value === "+" || e.target.value === "-" || e.target.value === "/" || e.target.value === "*" || e.target.value === "." || e.target.value === "%"){
+            if(calc.slice(-1)==="+"){
+                if(calc.includes("+"))return
+            }
+            else if(calc.slice(-1) === "-"){
+                if(calc.includes("-"))return
+            }
+            else if(calc.slice(-1) === "/"){
+                if(calc.includes("/"))return
+            }
+            else if(calc.slice(-1) === "."){
+                if(calc.includes("."))return
+            }
+            else if(calc.slice(-1) === "*"){
+                if(calc.includes("*"))return
+            }
+            else if(calc.slice(-1) === "%"){
+                if(calc.includes("%"))return
+            }
+            else{
+                setCalc(calc + e.target.value)
+            }
+        }
+        else{
+            if(calc.slice(-1) !== Number()){
+                let newCalc = calc.slice(0, -1)
+                setCalc(newCalc + e.target.value)
+                return
+            }
+            else{
+                setCalc(calc + e.target.value)
+                
+            }
+        }
     }
+
+
+        console.log(calc)
     
-    console.log(calc)
     const valueDelete = () =>{
         setCalc("")
     }
@@ -51,5 +86,6 @@ export default function Calculate(){
                 <IoMdCloseCircleOutline onClick={lenghtDel}/>
             </div>
         </div>
+       
     )
 }

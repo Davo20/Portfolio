@@ -1,5 +1,5 @@
 import "./App.css";
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 // import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import Header from "./Component/Header/Header";
 import About from "./Component/Section/About";
@@ -8,7 +8,6 @@ import Work from "./Component/Section/Work";
 import Contact from "./Component/Section/Contact";
 import Footer from "./Component/Footer/Footer";
 // import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 
 
 export default function App() {
@@ -34,8 +33,14 @@ export default function App() {
     more: "More",
     lang: true
   })
+
+  
+ 
   const langClick = () =>{
+    
     if(lang.lang){
+      
+     
       setLang({
         logo: "ԴԱՎ",
         burgName: "Դավիթ",
@@ -56,6 +61,7 @@ export default function App() {
         fontSize: "10px",
         lang: false
       })
+    
     }
     else{
       setLang({
@@ -77,8 +83,10 @@ export default function App() {
         more: "More",
         lang: true
       })
+      
     }
   }
+  
     const dd=(e)=>{
         e.preventDefault();
         const add=Array.from(new FormData(e.target))

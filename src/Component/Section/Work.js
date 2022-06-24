@@ -1,28 +1,34 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { BrowserRouter as Link } from "react-router-dom";
 import "./work.scss";
-import Calculate from "../Calculate/Calculate"
+import Calculate from "../Calculate/Calculate";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 export default function Work({lang, fon}){
+    useEffect(()=>{
+        Aos.init()
+    },[])
     return(
+      
         <section id="sectionWork" className={"section3 " + (fon && "active")}>
-            <h3>{lang.work}</h3>
+            <h3 data-aos="zoom-out-down" data-aos-offset="100">{lang.work}</h3>
             <div className="work">
-                <Link to="/" component={<Calculate/>}className="workOne">
-                    <div>
-                        <div>
-                            <span></span>
-                        </div>
-                    </div>
-                </Link>
-                <a href = "#" className="workTwo">
+                <a href="#" data-aos="fade-down" data-aos-offset="100" className="workOne">
                     <div>
                         <div>
                             <span></span>
                         </div>
                     </div>
                 </a>
-                <a href = "#" className="workThree">
+                <a href = "#" data-aos="fade-down" data-aos-offset="150" className="workTwo">
+                    <div>
+                        <div>
+                            <span></span>
+                        </div>
+                    </div>
+                </a>
+                <a href = "#" data-aos="fade-down" data-aos-offset="200" className="workThree">
                     <div>
                         <div>
                             <span></span>
@@ -31,6 +37,7 @@ export default function Work({lang, fon}){
                 </a>
             </div>
         </section>
+       
     )
 }
 

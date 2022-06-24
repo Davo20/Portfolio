@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import Form from "./Form";
 import {MdEdit, MdDone, MdClose} from "react-icons/md";
-import "./task.scss";
+// import "./task.scss";
 export default function Task (){
     const [task, setTask] = useState([])
     const [todo, setTodo] = useState([])

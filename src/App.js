@@ -9,12 +9,16 @@ import Contact from "./Component/Section/Contact";
 import Footer from "./Component/Footer/Footer";
 // import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+if(!localStorage.getItem("lang")){
+  localStorage.setItem("lang", "eng")
+}
 
 export default function App() {
   const [open, setOpen] = useState(false)
   const [fon, setFon] = useState(false)
   const [form, setForm] = useState([])
-  const [lang, setLang] = useState({
+  const [lang, setLang] = useState(
+    localStorage.getItem("lang")=="eng"?{
     logo: "DAV",
     burgName: "David",
     burgLastName: " Balabekyan",
@@ -31,16 +35,35 @@ export default function App() {
     sendBt: "Send",
     footLevel: "Front-end Developer",
     more: "More",
-    lang: true
-  })
+  }:{logo: "ԴԱՎ",
+  burgName: "Դավիթ",
+  burgLastName: "Բալաբեկյան",
+  home: "Գլխավոր",
+  about: "Իմ մասին",
+  skills: "Հմտություն",
+  work: "Աշխատանք",
+  contact: "Կապ",
+  homeName: "Ողջույն ես Դավիթն եմ",
+  downBt: "Ներբեռնել CV",
+  inputName: "Անուն",
+  inputEmail: "Էլ․ Հասցե",
+  inputMessage: "Հաղորդագրություն...",
+  sendBt: "ՈՒղարկել",
+  footLevel: "Front-end Ծրագրավորող",
+  more: "Ավելին",
+  fontSize: "10px",
+})
 
   
  
   const langClick = () =>{
-    
-    if(lang.lang){
-      
-     
+    if(localStorage.getItem("lang")== "arm"){
+      localStorage.setItem("lang", "eng")
+    }
+    else{
+      localStorage.setItem("lang", "arm")
+    }
+    if(localStorage.getItem("lang")=="arm"){
       setLang({
         logo: "ԴԱՎ",
         burgName: "Դավիթ",

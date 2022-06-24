@@ -9,7 +9,7 @@ import "aos/dist/aos.css";
 
 export default function Skill({lang, fon}){
     useEffect(()=>{
-        Aos.init()
+        Aos.init({duraction: 300})
     }, [])
     const [value, setValue] = useState([
         {
@@ -41,11 +41,11 @@ export default function Skill({lang, fon}){
     
     return(
         <section id="sectionSkill" className={"section2 " + (fon && "active")}>
-            <h3 data-aos="zoom-out-down" data-aos-offset="100">{lang.skills}</h3>
+            <h3 data-aos="zoom-in-down">{lang.skills}</h3>
             <div className="skill">
                 <div className="frontSkill">
                     <div>{value.map((elem)=>{
-                        return <div data-aos="fade-right" data-aos-offset="300" className={elem.className} key={Math.random()}>
+                        return <div data-aos="fade-right" data-aos-offset="200" data-aos-easing="ease-in-sine" className={elem.className} key={Math.random()}>
                             <div className="skillIcon">{elem.icon}</div>
                             <div className="skillName">
                                 <span>{elem.name}</span>

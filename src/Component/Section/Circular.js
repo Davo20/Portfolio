@@ -5,14 +5,14 @@ import "aos/dist/aos.css";
 
 export default function Circular(){
     useEffect(()=>{
-        Aos.init()
+        Aos.init({duration:200})
     }, [])
     const [radius, setRadius] = useState([{count:95},{count:92},{count:92},{count:65},{count:60}])
     return(
     <div className="headRadius">
         {radius.map((elem)=>{
             return(
-                <div data-aos="fade-left" data-aos-offset="300" className="radius" key={Math.random()}>
+                <div data-aos="fade-left" data-aos-offset="200" data-aos-easing="ease-in-sine" className="radius" key={Math.random()}>
                     <div className="htmlSize">{`${elem.count}${"%"}`}</div>
                     <div className="boo">
                         <div className="rotate">

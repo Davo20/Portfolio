@@ -1,4 +1,3 @@
-import "./App.css";
 import React, {useState, useEffect} from "react";
 // import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import Header from "./Component/Header/Header";
@@ -8,6 +7,7 @@ import Work from "./Component/Section/Work";
 import Contact from "./Component/Section/Contact";
 import Footer from "./Component/Footer/Footer";
 // import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import "./App.css";
 
 if(!localStorage.getItem("lang")){
   localStorage.setItem("lang", "eng")
@@ -119,10 +119,8 @@ export default function App() {
                 email: add[1][1],
                 message: add[2][1]
             }]
-            setForm(obj)
-            
+            setForm(obj) 
         }
-        console.log(form)
   return(
     <main className="main">
       <Header open = {open} setOpen = {setOpen} lang={lang} langClick={langClick} fon={fon} setFon={setFon}/>

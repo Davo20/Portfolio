@@ -1,6 +1,6 @@
-import "./burger.scss"
 import React, {useState} from "react";
 import {BsSunFill, BsMoonFill} from "react-icons/bs";
+import "./burger.scss"
 
 export default function Burger({open, setOpen, lang, langClick, fon, setFon}){
    

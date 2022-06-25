@@ -3,25 +3,25 @@ import { BrowserRouter as Link } from "react-router-dom";
 import { MdAlternateEmail } from "react-icons/md"
 import {FaLinkedinIn, FaDownload} from "react-icons/fa"
 import {BsFillTelephoneFill} from "react-icons/bs"
-import "./header.scss"
-import Aos from "aos";
-import "aos/dist/aos.css";
+// import Aos from "aos";
+// import "aos/dist/aos.css";
 import { Typewriter } from "react-simple-typewriter";
+import "./header.scss"
 
 export default function Home({lang}){
-    useEffect(()=>{
-        Aos.init()
-    },[])
+    // useEffect(()=>{
+    //     Aos.init()
+    // },[])
     return(
         <div className="homeContainer">
             <div className="contact">
-                <a href="mailto:dav507805@gmail.com" data-aos="fade-right"  className="linkHref">
+                <a href="mailto:dav507805@gmail.com" data-aos="fade-right" data-aos-delay="200" className="linkHref">
                     <MdAlternateEmail/>
                 </a>
-                <a href="https://www.instagram.com/balabekyan_david/" data-aos="fade-right" data-aos-delay="100" className="linkHref">
+                <a href="https://www.instagram.com/balabekyan_david/" data-aos="fade-right" data-aos-delay="250" className="linkHref">
                     <FaLinkedinIn/>
                 </a>
-                <a href="tel: +374-91-507-805" data-aos="fade-right" data-aos-delay="200" className="linkHref">
+                <a href="tel: +374-91-507-805" data-aos="fade-right" data-aos-delay="300" className="linkHref">
                     <BsFillTelephoneFill/>
                 </a>
             </div>
@@ -44,7 +44,7 @@ export default function Home({lang}){
                     <FaDownload/>
                 </div>
             </div>
-            <div  data-aos="fade-left" data-aos-duration="1000" className="img"></div> 
+            <div data-aos="fade-left" data-aos-duration="2000"  className="img"></div> 
         </div>
     )
 }

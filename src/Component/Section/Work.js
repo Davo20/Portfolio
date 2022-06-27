@@ -25,7 +25,7 @@ export default function Work({lang, fon}){
       
         <section id="sectionWork" className={"section3 " + (fon && "active")}>
             <h3 data-aos="zoom-in-down">{lang.work}</h3>
-            <div className="bb">
+            <div className="sliderCont">
             <div onClick={left} className="left"> <IoIosArrowBack /></div>
             <div className="work" ref={slider}>
                 <div className="slider">

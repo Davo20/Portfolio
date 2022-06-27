@@ -26,20 +26,26 @@ export default function Calculate(){
             else if(calc.slice(-1) === "%"){
                 if(calc.includes("%"))return
             }
+            else  if(calc[calc.length - 1] == "+" || calc[calc.length - 1] == "-"){
+                // let newCalc = calc.slice(0, calc.length - 1)
+                setCalc(calc.slice(0, calc.length - 1) + e.target.value)
+                
+            }
             else{
                 setCalc(calc + e.target.value)
             }
         }
-        else{
-            if(calc.slice(-1) !== Number()){
-                let newCalc = calc.slice(0, -1)
-                setCalc(newCalc + e.target.value)
-                return
-            }
+        // else{
+        //     if(e.target.value == "+" || e.target.value =="-"){
+        //     if(calc[calc.length - 1] == "+" || calc[calc.length - 1] == "-"){
+        //         let newCalc = calc.slice(0, calc.length - 1)
+        //         setCalc(newCalc + e.target.value)
+                
+        //     }}
             else{
                 setCalc(calc + e.target.value)
                 
-            }
+            // }
         }
     }
 

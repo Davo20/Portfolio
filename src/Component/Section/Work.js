@@ -1,35 +1,41 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useRef} from "react";
 import { BrowserRouter as Link } from "react-router-dom";
-// import Calculate from "../Calculate/Calculate";
+import Calculate from "../Calculate/Calculate";
+import Task from "../Task/Task";
+import {IoIosArrowBack, IoIosArrowForward} from "react-icons/io"
 import "./work.scss";
 
 export default function Work({lang, fon}){
+    const slider = useRef(null)
+   
+    let active = 0
+    const left = ()=>{
+        if(active!=0){
+            active++
+            }
+            else if(active==0)active--
+            Array.from(slider.current.children).map((elem)=>{
+                elem.style=`transform: translateX(${active*100}%)`
+            })
+
+        
+        
+    }
     return(
       
         <section id="sectionWork" className={"section3 " + (fon && "active")}>
             <h3 data-aos="zoom-in-down">{lang.work}</h3>
-            <div className="work">
-                <a href="#" data-aos="fade-down" data-aos-offset="100" data-aos-duration="800" className="workOne">
-                    <div>
-                        <div>
-                            <span></span>
-                        </div>
-                    </div>
-                </a>
-                <a href = "#" data-aos="fade-down" data-aos-offset="150" data-aos-duration="800" className="workTwo">
-                    <div>
-                        <div>
-                            <span></span>
-                        </div>
-                    </div>
-                </a>
-                <a href = "#" data-aos="fade-down" data-aos-offset="200" data-aos-duration="800" className="workThree">
-                    <div>
-                        <div>
-                            <span></span>
-                        </div>
-                    </div>
-                </a>
+            <div className="bb">
+            <div onClick={left} className="left"> <IoIosArrowBack /></div>
+            <div className="work" ref={slider}>
+                <div className="slider">
+                    <Calculate/>
+                </div>
+                <div className="sliderTwo">
+                    <Task/>
+                </div>
+            </div>
+            <div className="right" onClick={left}> <IoIosArrowForward /></div>
             </div>
         </section>
        

@@ -3,7 +3,7 @@ import { BrowserRouter as Link } from "react-router-dom";
 // import {Link} from "react-router-dom"
 import {BsSunFill, BsMoonFill} from "react-icons/bs";
 
-export default function Nav({navBar, lang, langClick, fon, setFon}){
+export default function Nav({lang, langClick, fon, setFon}){
      return(
          <nav className="list1">
              <ul>

@@ -5,29 +5,11 @@ import Burger from "./Burger";
 import "./header.scss"
 
 export default function Header({open, setOpen, lang, langClick, fon, setFon}){
-    const [navBar, setNavBar] = useState([
-        {
-            home: "Home",
-            about: "About",
-            skill: "Skills",
-            work: "Work",
-            contact: "Contact",
-            language: true
-        },
-        {
-            home: "Գլխավոր",
-            about: "Իմ մասին",
-            skill: "Հմտություն",
-            work: "Աշխատանք",
-            contact: "Կապ",
-            language: false
-        }
-    ])
     return(
         <header id="header" className="header">
             <div className={"head " + (open && "active")}>
                 <h1>{lang.logo}</h1>
-                <Nav navBar = {navBar} lang = {lang} langClick = {langClick} fon={fon} setFon={setFon}/>
+                <Nav lang = {lang} langClick = {langClick} fon={fon} setFon={setFon}/>
                 
                 <Burger open = {open} setOpen={setOpen} lang={lang} langClick={langClick} fon={fon} setFon = {setFon}/>
                 <div className="bgCont">

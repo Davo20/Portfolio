@@ -35,6 +35,14 @@ export default function App() {
     sendBt: "Send",
     footLevel: "Front-end Developer",
     more: "More",
+    taskName: "PhoneBook",
+    taskAdd: "Add",
+    taskEdit: "Save",
+    taskEditClose: "Close",
+    taskInputName: "Name",
+    taskLastName: "Last Name",
+    taskPhoneNumber: "Phone Number",
+    edit: "Edit",
   }:{logo: "ԴԱՎ",
   burgName: "Դավիթ",
   burgLastName: "Բալաբեկյան",
@@ -52,6 +60,14 @@ export default function App() {
   footLevel: "Front-end Ծրագրավորող",
   more: "Ավելին",
   fontSize: "10px",
+  taskName: "Հեռախոսահամարների գիրք",
+  taskAdd: "Ավելացնել",
+  taskEdit: "Պահպանել",
+  taskEditClose: "Փակել",
+  taskInputName: "Անուն",
+  taskLastName: "Ազգանուն",
+  taskPhoneNumber: "Հեռախոսահամար",
+  edit: "Խմբագրել",
 })
 
   
@@ -82,6 +98,14 @@ export default function App() {
         footLevel: "Front-end Ծրագրավորող",
         more: "Ավելին",
         fontSize: "10px",
+        taskName: "Հեռախոսահամարների գիրք",
+        taskAdd: "Ավելացնել",
+        taskEdit: "Պահպանել",
+        taskEditClose: "Փակել",
+        taskInputName: "Անուն",
+        taskLastName: "Ազգանուն",
+        taskPhoneNumber: "Հեռախոսահամար",
+        edit: "Խմբագրել",
         lang: false
       })
     
@@ -104,6 +128,14 @@ export default function App() {
         sendBt: "Send",
         footLevel: "Front-end Developer",
         more: "More",
+        taskName: "PhoneBook",
+        taskAdd: "Add",
+        taskEdit: "Save",
+        taskEditClose: "Close",
+        taskInputName: "Name",
+        taskLastName: "Last Name",
+        taskPhoneNumber: "Phone Number",
+        edit: "Edit",
         lang: true
       })
       

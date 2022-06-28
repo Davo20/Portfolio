@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import Form from "./Form";
+import Edit from "./Edit/Edit";
 import {MdEdit, MdDone, MdClose} from "react-icons/md";
 import "./task.scss";
 
@@ -13,9 +14,9 @@ if(!localStorage.getItem("todo")){
 if(!localStorage.getItem("done")){
     localStorage.setItem("done", JSON.stringify([]))
 }
-export default function Task (){
+export default function Task ({lang}){
     const [task, setTask] = useState(JSON.parse(localStorage.getItem("todo")))
-    const [todo, setTodo] = useState(JSON.parse(localStorage.getItem("done")))
+    const [edit, setEdit] = useState({open:false, editId:0})
     
     const handleClick = (e)=>{
         e.preventDefault()
@@ -32,8 +33,29 @@ export default function Task (){
         localStorage.setItem("id", +localStorage.getItem("id")+1)
         localStorage.setItem("todo", JSON.stringify([...JSON.parse(localStorage.getItem("todo")),...arr]))
         // localStorage.setItem("todo", JSON.stringify([...JSON.parse(localStorage.getItem("todo"))], ...task))
+        setTask(" ")
         setTask(JSON.parse(localStorage.getItem("todo")))
-
+    }
+    const editOpen = ()=>{
+        setEdit({open:true})
+    }
+    const editClose = ()=>{
+        setEdit({open:false})
+    }
+    const editSave = (e)=>{
+        e.preventDefault()
+        const editArr = []
+        const editForm = [...Array.from(new FormData(e.target))]
+        JSON.parse(localStorage.getItem("todo")).forEach((elem)=>{
+            edit.editId = elem.id
+            elem.name= editForm[0][1]
+            elem.lastName = editForm[1][1]
+            elem.phoneNumber = editForm[2][1] + editForm[3][1]
+            editArr.push(elem)
+        })
+        localStorage.setItem("todo", JSON.stringify(editArr))
+        setTask(JSON.parse(localStorage.getItem("todo")))
+        console.log(editForm)
     }
  
     const delClick = (e) =>{
@@ -45,10 +67,15 @@ export default function Task (){
     }
     return(
         <div className="task">
-            <Form handleClick={handleClick}/>
+            <Form handleClick={handleClick} lang={lang}/>
+            {edit.open && <div className="editCont">
+                <div className="editOpen">
+            <Edit editClose={editClose} editSave={editSave} lang={lang}/>
+                </div>
+            </div>}
             <div className="addCont">
                 <div className="done">
-                    <h2>First</h2>
+                    <h2>{lang.taskName}</h2>
                     {task.map((elem)=>{
                         return (
                         <div key={Math.random()} className="userCont">
@@ -56,7 +83,7 @@ export default function Task (){
                             <span>{elem.lastName}</span>
                             <span>{elem.phoneNumber}</span>
                             <span>
-                                <MdEdit/>
+                                <MdEdit onClick={editOpen}/>
                                 <MdClose onClick={delClick} id={elem.id} className="todo"/>
                             </span>
                         </div>

@@ -3,6 +3,7 @@ import { BrowserRouter as Link } from "react-router-dom";
 import { MdAlternateEmail } from "react-icons/md"
 import {FaLinkedinIn, FaDownload} from "react-icons/fa"
 import {BsFillTelephoneFill} from "react-icons/bs"
+import {RiArrowDownLine} from "react-icons/ri"
 // import Aos from "aos";
 // import "aos/dist/aos.css";
 import { Typewriter } from "react-simple-typewriter";
@@ -45,6 +46,7 @@ export default function Home({lang}){
                 </div>
             </div>
             <div data-aos="fade-left" data-aos-duration="2000"  className="img"></div> 
+            <RiArrowDownLine className="arrowDown"/>
         </div>
     )
 }

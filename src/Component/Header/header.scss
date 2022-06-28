@@ -162,6 +162,19 @@ html{
             width: 100%;
             height: auto;
             background-color: #2d0349;
+            .arrowDown{
+                position: absolute;
+                bottom: 20px;
+                text-align: center;
+                font-size: 50px;
+                animation: arrowDown 1s infinite;
+            }
+            @keyframes arrowDown{
+                100%{
+                    transform: translateY(10px);
+                }
+            
+            }
             .homeContainer{
                 display: flex;
                 justify-content: space-around;

@@ -60,6 +60,7 @@
             // background-color: blue;
             .slider, .sliderTwo{
                 min-width: 100%;
+                transition: 0.5s ease-in;
             }
         }
     }

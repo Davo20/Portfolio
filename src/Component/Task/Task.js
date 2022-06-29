@@ -53,8 +53,9 @@ export default function Task ({lang}){
            
         }
     }
-    const editOpen = ()=>{
-        setEdit({open:true})
+    const editOpen = (e)=>{
+        setEdit({open:true, editId:e.target.id})
+        console.log(e.target.id)
     }
     const editClose = ()=>{
         setEdit({open:false})
@@ -64,10 +65,13 @@ export default function Task ({lang}){
         const editArr = []
         const editForm = [...Array.from(new FormData(e.target))]
         JSON.parse(localStorage.getItem("todo")).forEach((elem)=>{
-            edit.editId = elem.id
-            elem.name= editForm[0][1]
-            elem.lastName = editForm[1][1]
-            elem.phoneNumber = editForm[2][1] + editForm[3][1]
+            if(edit.editId == elem.id){
+
+                elem.name= editForm[0][1]
+                elem.lastName = editForm[1][1]
+                elem.phoneNumber = editForm[2][1] + editForm[3][1]
+            }
+            // edit.editId = elem.id
             editArr.push(elem)
         })
         localStorage.setItem("todo", JSON.stringify(editArr))
@@ -79,6 +83,7 @@ export default function Task ({lang}){
             const data = JSON.parse(localStorage.getItem("todo")).filter((elem)=>{
                 return e.target.id != elem.id
             })
+            console.log(e.target.id)
             localStorage.setItem("todo", JSON.stringify(data))
             setTask(JSON.parse(localStorage.getItem("todo")))
     }
@@ -101,7 +106,7 @@ export default function Task ({lang}){
                             <span>{elem.phoneNumber}</span>
                             <span className="iconcont">
                                 <span className="edit">
-                                    <MdEdit onClick={editOpen}/>
+                                    <MdEdit onClick={editOpen} id = {elem.id}/>
                                 </span>
                                 <span className="close">
                                     <MdClose onClick={delClick} id={elem.id} className="todo"/>

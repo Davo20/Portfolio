@@ -23,10 +23,22 @@
         margin: 0 auto;
         top: 0;
         bottom: 0;
+        z-index: 2;
+        h3{
+            font-size: 28px;
+            letter-spacing: 2px;
+        }
         .editOpen{
             width: 60%;
+            min-width: 300px;
             height: auto;
-            background-color: rgb(38, 72, 167);
+            background-color: #FFFEF2;
+            box-shadow: 1px 2px 6px 1px #2d0349;
+            border-radius: 10px;
+            .editBtn{
+                // display: inline-block;
+                width: 90%;
+            }
         }
         .formCont{
             input{
@@ -65,16 +77,41 @@
             // background-color: #2d0349;
         }
         button{
+            display: block;
+            position: relative;
             height: 40px;
-            width: 100px;
-            background-color: #2d0349;
+            // width: 200px;
+            margin: 10px auto;
             outline: none;
-            border: none;
-            border-radius: 5px;
-            color: #FFFEF2;
+            border: 2px solid #2d0349;
+            color: #2d0349;
             font-size: 15px;
-            margin: 10px 0;
+            font-weight: bold;
+            z-index: 1;
+            overflow: hidden;
+            transition: 0.3s ease-in;
+            letter-spacing: 2px;
             cursor: pointer;
+            div{
+                position: absolute;
+                width: 0;
+                height: 100%;
+                top: 0;
+                right: 0;
+                left: unset;
+                z-index: -1;
+                transition: 0.3s ease-in;
+                background-color: #2d0349;
+            }
+            &:hover{
+                color: #FFFEF2;
+                div{
+                    left: 0;
+                    right: unset;
+                    width: 100%;
+                }
+            }
+           
             &:active{
                 transform: scale(1.02)
             }
@@ -82,13 +119,6 @@
         .phoneNumber{
             width: 80%;
             margin: 0 auto;
-        }
-        
-        button{
-            display: block;
-            margin: 0 auto;
-            width: 100px;
-            height: 25px;
         }
     }
     .addCont{
@@ -153,11 +183,17 @@
     }
 }
 @media only screen and (min-width: 630px){
+    button{
+        width: 200px;
+    }
     .userCont{
         height: 30px;
     }
 }
 @media only screen and (max-width: 630px){
+    button{
+        width: 80%;
+    }
     .userCont{
         width:95%;
         height: 120px;

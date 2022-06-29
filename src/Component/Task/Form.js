@@ -13,7 +13,7 @@ export default function Form({handleClick, lang,reqName, reqLName, reqPNumber}){
                <div><input type="text" name="name" placeholder={lang.taskInputName} ></input>{reqName && <BsExclamationCircle className="req"/>}</div>
                 <div><input type="text" name="lastname" placeholder={lang.taskLastName} ></input>{reqLName && <BsExclamationCircle className="req"/>}</div>
                 <div><PhoneInput className="phoneNumber" placeholder={lang.taskPhoneNumber} name="phoneNumber"  onChange={setPhoneNumber}></PhoneInput>{reqPNumber && <BsExclamationCircle className="req"/>}</div>
-                <button type="submit">{lang.taskAdd}</button>
+                <button type="submit">{lang.taskAdd}<div></div></button>
             </form>
         </div>
     )

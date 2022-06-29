@@ -11,9 +11,9 @@ export default function Edit({editClose, editSave, lang}){
                 <input type="text" name="name" placeholder={lang.taskInputName} required></input>
                 <input type="text" name="lastname" placeholder={lang.taskLastName} required></input>
                 <PhoneInput className="phoneNumber" placeholder={lang.taskPhoneNumber} name="phoneNumber"  onChange={setPhoneNumber}></PhoneInput>
-                <button type="submit">{lang.taskEdit}</button>
+                <button className="editBtn" type="submit">{lang.taskEdit}<div></div></button>
+                <button className="editBtn" onClick={editClose}>{lang.taskEditClose}<div></div></button>
             </form>
-                <button onClick={editClose}>{lang.taskEditClose}</button>
         </div>
     )
 }

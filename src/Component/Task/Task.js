@@ -17,24 +17,41 @@ if(!localStorage.getItem("done")){
 export default function Task ({lang}){
     const [task, setTask] = useState(JSON.parse(localStorage.getItem("todo")))
     const [edit, setEdit] = useState({open:false, editId:0})
+    const [required, setRequired] = useState({reqName:false, reqLName:false, reqPNumber:false})
     
     const handleClick = (e)=>{
         e.preventDefault()
-       
         const add = Array.from(new FormData(e.target))
-        const arr = [
-            {
-                id: localStorage.getItem("id"),
-                name: add[0][1],
-                lastName: add[1][1],
-                phoneNumber: add[2][1]+add[3][1]
-            }
-        ]
-        localStorage.setItem("id", +localStorage.getItem("id")+1)
-        localStorage.setItem("todo", JSON.stringify([...JSON.parse(localStorage.getItem("todo")),...arr]))
-        // localStorage.setItem("todo", JSON.stringify([...JSON.parse(localStorage.getItem("todo"))], ...task))
-        setTask(" ")
-        setTask(JSON.parse(localStorage.getItem("todo")))
+        
+        if(add[0][1] === ""){
+            setRequired({reqName:true})
+        }
+        else if(add[1][1] === ""){
+            setRequired({reqLName:true})
+        }
+        else if(add[3][1] === ""){
+            setRequired({reqPNumber:true})
+        }
+        else if(add[0][1] === "" && add[1][1] === "" && add[3][1] === ""){
+            setRequired({reqName:true, reqLName:true, reqPNumber:true})
+        }
+       else{
+        setRequired({reqName:false, reqLName:false, reqPNumber:false})
+           const arr = [
+               {
+                   id: localStorage.getItem("id"),
+                   name: add[0][1],
+                   lastName: add[1][1],
+                   phoneNumber: add[2][1]+add[3][1]
+               }
+           ]
+           localStorage.setItem("id", +localStorage.getItem("id")+1)
+           localStorage.setItem("todo", JSON.stringify([...JSON.parse(localStorage.getItem("todo")),...arr]))
+           // localStorage.setItem("todo", JSON.stringify([...JSON.parse(localStorage.getItem("todo"))], ...task))
+           
+           setTask(JSON.parse(localStorage.getItem("todo")))
+           
+        }
     }
     const editOpen = ()=>{
         setEdit({open:true})
@@ -67,7 +84,7 @@ export default function Task ({lang}){
     }
     return(
         <div className="task">
-            <Form handleClick={handleClick} lang={lang}/>
+            <Form handleClick={handleClick} lang={lang} reqName={required.reqName} reqLName={required.reqLName} reqPNumber={required.reqPNumber}/>
             {edit.open && <div className="editCont">
                 <div className="editOpen">
             <Edit editClose={editClose} editSave={editSave} lang={lang}/>
@@ -82,9 +99,13 @@ export default function Task ({lang}){
                             <span>{elem.name}</span>
                             <span>{elem.lastName}</span>
                             <span>{elem.phoneNumber}</span>
-                            <span>
-                                <MdEdit onClick={editOpen}/>
-                                <MdClose onClick={delClick} id={elem.id} className="todo"/>
+                            <span className="iconcont">
+                                <span className="edit">
+                                    <MdEdit onClick={editOpen}/>
+                                </span>
+                                <span className="close">
+                                    <MdClose onClick={delClick} id={elem.id} className="todo"/>
+                                </span>
                             </span>
                         </div>
                         )

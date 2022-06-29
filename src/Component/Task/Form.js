@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {MdClose} from "react-icons/md";
+import {BsExclamationCircle} from "react-icons/bs";
 import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input';
 import "./task.scss";
@@ -10,9 +10,9 @@ export default function Form({handleClick, lang,reqName, reqLName, reqPNumber}){
     return(
         <div className="formCont">
             <form action="#" onSubmit={handleClick} >
-               <label> <input type="text" name="name" placeholder={lang.taskInputName} ></input>{reqName && <MdClose className="req"/>}</label>
-                <input type="text" name="lastname" placeholder={lang.taskLastName} ></input>{reqLName && <MdClose className="req"/>}
-                <PhoneInput className="phoneNumber" placeholder={lang.taskPhoneNumber} name="phoneNumber"  onChange={setPhoneNumber}></PhoneInput>{reqPNumber && <MdClose className="req"/>}
+               <div><input type="text" name="name" placeholder={lang.taskInputName} ></input>{reqName && <BsExclamationCircle className="req"/>}</div>
+                <div><input type="text" name="lastname" placeholder={lang.taskLastName} ></input>{reqLName && <BsExclamationCircle className="req"/>}</div>
+                <div><PhoneInput className="phoneNumber" placeholder={lang.taskPhoneNumber} name="phoneNumber"  onChange={setPhoneNumber}></PhoneInput>{reqPNumber && <BsExclamationCircle className="req"/>}</div>
                 <button type="submit">{lang.taskAdd}</button>
             </form>
         </div>

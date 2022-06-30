@@ -32,7 +32,7 @@ export default function Work({lang, fon}){
                     <Calculate/>
                 </div>
                 <div className="sliderTwo">
-                    <Task lang={lang}/>
+                    <Task lang={lang} fon={fon}/>
                 </div>
             </div>
             <div className="right" onClick={left}> <IoIosArrowForward /></div>

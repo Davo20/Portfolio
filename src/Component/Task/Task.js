@@ -14,7 +14,7 @@ if(!localStorage.getItem("todo")){
 if(!localStorage.getItem("done")){
     localStorage.setItem("done", JSON.stringify([]))
 }
-export default function Task ({lang}){
+export default function Task ({lang, fon}){
     const [task, setTask] = useState(JSON.parse(localStorage.getItem("todo")))
     const [edit, setEdit] = useState({open:false, editId:0})
     const [required, setRequired] = useState({reqName:false, reqLName:false, reqPNumber:false})
@@ -91,24 +91,24 @@ export default function Task ({lang}){
         <div className="task">
             <Form handleClick={handleClick} lang={lang} reqName={required.reqName} reqLName={required.reqLName} reqPNumber={required.reqPNumber}/>
             {edit.open && <div className="editCont">
-                <div className="editOpen">
-            <Edit editClose={editClose} editSave={editSave} lang={lang}/>
+                <div className={"editOpen " + (fon && "active")}>
+            <Edit editClose={editClose} editSave={editSave} lang={lang} fon={fon}/>
                 </div>
             </div>}
             <div className="addCont">
-                <div className="done">
+                <div className={"done " + (fon && "active")}>
                     <h2>{lang.taskName}</h2>
                     {task.map((elem)=>{
                         return (
-                        <div key={Math.random()} className="userCont">
+                        <div key={Math.random()} className={"userCont " + (fon && "active")}>
                             <span>{elem.name}</span>
                             <span>{elem.lastName}</span>
                             <span>{elem.phoneNumber}</span>
                             <span className="iconcont">
-                                <span className="edit">
+                                <span className={"edit " + (fon && "active")}>
                                     <MdEdit onClick={editOpen} id = {elem.id}/>
                                 </span>
-                                <span className="close">
+                                <span className={"close " + (fon && "active")}>
                                     <MdClose onClick={delClick} id={elem.id} className="todo"/>
                                 </span>
                             </span>

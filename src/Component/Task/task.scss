@@ -37,7 +37,6 @@
             box-shadow: 1px 2px 6px 1px #2d0349;
             border-radius: 10px;
             .editBtn{
-                // display: inline-block;
                 width: 90%;
                 &.active{
                     border-color: rgb(14, 0, 20);
@@ -170,7 +169,7 @@
                 justify-content: space-around;
                 align-items: center;
                 border-radius: 10px;
-                box-shadow: 1px 2px 5px 2px gray;
+                box-shadow: 1px 2px 5px 2px #2d0349;
                 .edit, .close{
                     display: inline-block;
                     width: 25px;
@@ -205,7 +204,7 @@
             }
             &.active{
                 background-color: #2d0349;
-                h3{
+                h2{
                     color: #FFFEF2;
                 }
             }

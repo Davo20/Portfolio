@@ -2,7 +2,8 @@ import React, {useEffect, useRef} from "react";
 import { BrowserRouter as Link } from "react-router-dom";
 import Calculate from "../Calculate/Calculate";
 import Task from "../Task/Task";
-import  Game from "../Game/Game"
+import  Game from "../Game/Game";
+import  GameTwo from "../GameTwo/GameTwo"
 import {IoIosArrowBack, IoIosArrowForward} from "react-icons/io"
 import "./work.scss";
 
@@ -14,7 +15,7 @@ export default function Work({lang, fon}){
         if(active!=0){
             active++
             }
-            else if(active==0)active-=2
+            else if(active==0)active-=3
             Array.from(slider.current.children).map((elem)=>{
                 elem.style=`transform: translateX(${active*100}%)`
             })
@@ -23,10 +24,10 @@ export default function Work({lang, fon}){
         
     }
     const right = ()=>{
-        if(active != -2){
+        if(active != -3){
             active--
             }
-            else if(active==-2)active=0
+            else if(active==-3)active=0
             Array.from(slider.current.children).map((elem)=>{
                 elem.style=`transform: translateX(${active*100}%)`
             })
@@ -49,6 +50,9 @@ export default function Work({lang, fon}){
                 </div>
                 <div className="sliderThree">
                     <Game/>
+                </div>
+                <div>
+                    <GameTwo/>
                 </div>
             </div>
             <div className="right" onClick={right}> <IoIosArrowForward /></div>

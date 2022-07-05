@@ -4,7 +4,8 @@ import App from "./App";
 import Calculate from "./Component/Calculate/Calculate";
 import Task from "./Component/Task/Task";
 import Game from "./Component/Game/Game"
-
+// import Sudoku from "./Component/Sudoku/Sudoku"
+import GameTwo from "./Component/GameTwo/GameTwo"
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -13,5 +14,7 @@ root.render(
     {/* <Calculate/> */}
     {/* <Task/> */}
     {/* <Game/> */}
+    {/* <Sudoku/> */}
+    {/* <GameTwo/> */}
   </React.StrictMode>
 );

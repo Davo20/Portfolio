@@ -1,21 +1,25 @@
 import React, {useState} from "react";
 import GameSq from "./GameSq"
+import Delete from "./Delete"
 import "./game.scss";
 const gameArr = [[],[],[]]
 export default function Game(){
-    const [game, setGame]= useState("X")
+  
+    const [game, setGame] = useState("X")
     const [winner, setWinner]= useState()
     
     const squareClcik = (one, two)=>{
         setGame(square=> square == "X" ? "O" : "X")
         gameArr[one][two] = game
-        console.log(gameArr)
+        
+       
         if(winnerFunc()){
             setWinner(game  + "Winner!!")
             setGame("")
         }
         
     }
+    
     const winnerFunc = () =>{
         for(let i = 0; i <gameArr.length; i++){
             if(gameArr[i][0] == gameArr[i][1] && gameArr[i][1] == gameArr[i][2] &&  gameArr[i][0]){
@@ -39,6 +43,10 @@ export default function Game(){
         }
         
     }
+    const deleteClick =()=>{
+      
+       setGame("")
+    }
     return(
         <div>
             <div>
@@ -46,21 +54,23 @@ export default function Game(){
             </div>
         <div className="square">
             <div className="boxOne">
-                <GameSq one={0} two={0} squareState={game} gameClick = {squareClcik}/>
-                <GameSq one={0} two={1} squareState={game} gameClick = {squareClcik}/>
-                <GameSq one={0} two={2} squareState={game} gameClick = {squareClcik}/>
+                <GameSq one={0} two={0} squareState={game} gameClick = {squareClcik} del={deleteClick}/>
+                <GameSq one={0} two={1} squareState={game} gameClick = {squareClcik} del={deleteClick}/>
+                <GameSq one={0} two={2} squareState={game} gameClick = {squareClcik} del={deleteClick}/>
             </div>
             <div className="boxTwo">
-                <GameSq one = {1} two={0} squareState={game} gameClick = {squareClcik}/>
-                <GameSq one = {1} two={1} squareState={game} gameClick = {squareClcik}/>
-                <GameSq one = {1} two={2} squareState={game} gameClick = {squareClcik}/>
+                <GameSq one = {1} two={0} squareState={game} gameClick = {squareClcik} del={deleteClick}/>
+                <GameSq one = {1} two={1} squareState={game} gameClick = {squareClcik} del={deleteClick}/>
+                <GameSq one = {1} two={2} squareState={game} gameClick = {squareClcik} del={deleteClick}/>
             </div>
             <div className="boxThree">
-                <GameSq one = {2} two={0} squareState={game} gameClick = {squareClcik}/>
-                <GameSq one = {2} two={1} squareState={game} gameClick = {squareClcik}/>
-                <GameSq one = {2} two={2} squareState={game} gameClick = {squareClcik}/>
+                <GameSq one = {2} two={0} squareState={game} gameClick = {squareClcik} del={deleteClick}/>
+                <GameSq one = {2} two={1} squareState={game} gameClick = {squareClcik} del={deleteClick}/>
+                <GameSq one = {2} two={2} squareState={game} gameClick = {squareClcik} del={deleteClick}/>
             </div>
         </div>
+        <button onClick={deleteClick}>Remove</button>
+        
         </div>
     )
 }

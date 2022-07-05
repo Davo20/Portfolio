@@ -1,6 +1,6 @@
 import React, { useState} from "react";
 
-export default function GameSq({gameClick, squareState, one, two}){
+export default function GameSq({gameClick, squareState, one, two, del}){
     const [sq, setSq] = useState("")
     const handleClick = ()=>{
         if(sq == ""){

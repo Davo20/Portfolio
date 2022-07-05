@@ -51,7 +51,7 @@ export default function Work({lang, fon}){
                 <div className="sliderThree">
                     <Game/>
                 </div>
-                <div>
+                <div className="sliderFour">
                     <GameTwo/>
                 </div>
             </div>
